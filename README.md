@@ -1,43 +1,48 @@
-# Filmoteca – Prácticas 1–4
-Proyecto Android (API 36) para la entrega de los ejercicios: interfaz de datos, edición, layout-land e implementación en Compose.
+* Funcionalidades implementadas
+  
+1. Barra superior (App Bar / Toolbar)
 
-Ejercicio 1 — About / Información de la App
+Título centrado.
 
-En este ejercicio implementé una pantalla informativa con dos versiones:
+Botón de volver (flecha atrás).
 
-Versión con XML (Layouts)
+Menú superior con:
 
-Versión con Jetpack Compose
+Acerca de
 
-La pantalla muestra información básica de la app y un botón de contacto.
-Se creó e integró la Activity AboutActivity y su navegación desde el menú principal.
+Añadir película (solo XML)
 
-Ejercicio 2 — Creación de Datos / FilmDataActivity
+2. Lista de películas (ListView + XML)
 
-Aquí añadí una pantalla simple que muestra datos estáticos del proyecto usando TextView y layouts básicos.
-La idea del ejercicio es familiarizarme con el manejo de Activities y navegación entre pantallas.
+Se muestran varias películas con imagen, título y director.
 
-Ejercicio 3 — Listas básicas (ListView)
+Al pulsar una película:
 
-En este punto implementé la primera lista de películas usando un ArrayAdapter con un layout simple.
+Se muestra un Toast con el título y director.
 
-Funciones principales:
+3. Añadir películas
 
-Mostrar el listado de películas.
+El menú Añadir película agrega una película nueva a la lista.
 
-Detectar clic en un elemento.
+Se actualiza automáticamente el ListView.
 
-Pasar datos a la pantalla de detalle mediante intent.putExtra(…).
+4. Menú contextual (ActionMode)
 
-Fue mi primer acercamiento a trabajar con listas dinámicas en Android.
+Pulsación larga sobre un elemento permite seleccionar varios.
 
- Ejercicio 4 — Listas personalizadas + Edición
+Aparece la barra de acciones en la parte superior.
 
-En este ejercicio mejoré la lista:
+Se puede borrar las películas seleccionadas.
 
-✔️ ListView con Adaptador Personalizado
+5. Pantalla Acerca de
 
-Creé un layout personalizado para cada elemento, mostrando:
+Accesible desde el menú superior.
+
+Muestra información de la práctica.
+
+6. Pantalla de edición (Compose)
+
+Formulario en Jetpack Compose con:
 
 Título
 
@@ -45,30 +50,34 @@ Director
 
 Año
 
-Imagen miniatura
+Género
 
-✔️ FilmDetailActivity
+Formato
 
-Muestra la información completa de una película seleccionada.
+Enlace a IMDB
 
-✔️ FilmEditActivity
+Notas
 
-Pantalla para:
+El botón Guardar cierra la pantalla (no persiste datos, tal como pide la práctica).
 
-Añadir una nueva película
+* Estructura relevante del proyecto
 
-Editar una existente
+FilmListActivity.kt → Lista y manejo de menús
 
-Incluye:
+FilmListAdapter.kt → Adaptador del ListView
 
-Entrada de texto
+FilmDataSource.kt → Datos iniciales
 
-Spinners
+menu_film_list.xml → Menú superior
 
-Selección de imagen desde galería
+menu_film_list_context_delete.xml → Menú contextual
 
-Botón para tomar fotografía (con permisos en tiempo de ejecución)
+activity_film_list.xml → Toolbar + ListView
 
-✔️ Fuente de Datos
+FilmEditComposeActivity.kt → Pantalla de edición en Compose
 
-Implementé una clase simple FilmDataSource que almacena la lista de películas en memoria (modo demo para la práctica).
+LO QUE SE PIDE:
+
+La aplicación cumple con todos los puntos solicitados para la práctica de:
+
+Menús, App Bar, Toolbar, Menú contextual y acciones básicas.
